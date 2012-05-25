@@ -1,26 +1,20 @@
-<h1>Listing events</h1>
+  <div data-role="header">
+    <h1>Dans combien de jours ?</h1>
+  </div><!-- /header -->
+  
+  <div data-role="content">	
+  
+    <br/>
+  
+    <ul data-role="listview">
+        <% @events.each do |event| %>
+            <li><a href="/events/<%= event.id%>/edit"><%= event.name %> <span class="ui-li-count"><%= day_to_now(event.date) %></span></a></li>
+        <% end %>
+    </ul>
+    
+    
+    <br />
+    
+        <a href="/events/new" data-role="button" data-icon="plus">Nouveau</a>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Distance</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.date %></td>
-    <td><%= day_to_now(event.date) %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>
+  </div><!-- /content -->

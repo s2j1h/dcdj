@@ -1,5 +1,17 @@
-<h1>New event</h1>
+<div data-role="header" data-position="inline">
+	<a href="/" data-icon="delete">Annuler</a>
+	<h1>Nouvel événement</h1>
+	<a href="index.html" data-icon="check" id="validate">Valider</a>
+</div>
 
-<%= render 'form' %>
+ 	<div data-role="content">	
 
-<%= link_to 'Back', events_path %>
+		<%= render 'form' %>
+
+	</div><!-- /content -->
+
+<script>
+	$('#validate').click(function() {
+	  $('#new_event').submit();
+	});
+</script>
