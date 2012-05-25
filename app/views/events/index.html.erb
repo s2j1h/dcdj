@@ -3,9 +3,8 @@
   </div><!-- /header -->
   
   <div data-role="content">	
-  
-    <br/>
-  
+  <h1>Dans combien de jours ?</h1>
+  <br/>
     <ul data-role="listview">
         <% @events.each do |event| %>
             <li><a href="/events/<%= event.id%>/edit"><%= event.name %> <span class="ui-li-count"><%= day_to_now(event.date) %></span></a></li>

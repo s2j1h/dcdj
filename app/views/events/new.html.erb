@@ -1,17 +1,13 @@
 <div data-role="header" data-position="inline">
-	<a href="/" data-icon="delete">Annuler</a>
-	<h1>Nouvel événement</h1>
-	<a href="index.html" data-icon="check" id="validate">Valider</a>
+	<a href="/" data-icon="home">Accueil</a>
+	<h1>Nouveau</h1>
 </div>
 
  	<div data-role="content">	
 
 		<%= render 'form' %>
 
-	</div><!-- /content -->
+	<a href="/events/<%= @event.id %>" data-role="button" data-icon="Check" data-theme="b">Créer</a>
 
-<script>
-	$('#validate').click(function() {
-	  $('#new_event').submit();
-	});
-</script>
+
+	</div><!-- /content -->
