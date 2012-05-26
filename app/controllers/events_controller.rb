@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-
+    flash.keep
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -32,7 +32,8 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_path, notice: 'Evénement créé' }
+        flash[:notice] = "Evénement créé"
+        format.html { redirect_to events_path }
       else
         format.html { render action: "new" }
       end
@@ -46,7 +47,8 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to events_path, notice: 'Evénement mis à jour' }
+        flash[:notice] = "Evénement mis à jour"
+        format.html { redirect_to events_path }
       else
         format.html { render action: "edit" }
       end
@@ -60,6 +62,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
+      flash[:notice] = "Evénement supprimé"
       format.html { redirect_to events_url }
     end
   end

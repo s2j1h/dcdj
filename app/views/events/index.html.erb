@@ -1,10 +1,17 @@
   <div data-role="header">
-    <h1>Dans combien de jours ?</h1>
+    <h1>dcdj</h1>
   </div><!-- /header -->
   
   <div data-role="content">	
-  <h1>Dans combien de jours ?</h1>
+  <h1>Dans combien de jours?</h1>
   <br/>
+  <% if flash[:notice] %>
+  <div class="ui-body ui-body-e">
+      <h3><%= flash[:notice] %></h3>
+  </div>
+  <br/>
+  <br/>
+  <% end %>
     <ul data-role="listview">
         <% @events.each do |event| %>
             <li><a href="/events/<%= event.id%>/edit"><%= event.name %> <span class="ui-li-count"><%= day_to_now(event.date) %></span></a></li>

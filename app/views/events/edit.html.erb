@@ -4,16 +4,18 @@
 </div>
 
   	<div data-role="content">	
-
+	<h1>Modifier un événement</h1>
+	<br/>
 		<%= render 'form' %>
-		
-		<a href="/events/<%= @event.id %>" data-role="button" data-icon="Check" data-inline="true" data-theme="b">Modifier</a>
+	<br/>
+		<a href="#" data-role="button" data-icon="check" data-inline="true" data-theme="b" id="submit">Modifier</a>
 		<a href="/events/<%= @event.id %>" data-role="button" data-icon="Delete" data-inline="true" data-theme="e" data-method="delete" rel="nofollow">Supprimer</a>
 
 	</div><!-- /content -->
 
 <script>
-	$('#other').click(function() {
-	  $('#form').submit();
+	$('#submit').click(function(event) {
+		event.preventDefault();
+	  	$('.edit_event').submit();
 	});
 </script>

@@ -4,10 +4,18 @@
 </div>
 
  	<div data-role="content">	
-
+	<h1>Créer un nouvel événement</h1>
+  	<br/>
 		<%= render 'form' %>
-
-	<a href="/events/<%= @event.id %>" data-role="button" data-icon="Check" data-theme="b">Créer</a>
+	<br/>
+	<a href="#" data-role="button" data-icon="check" data-theme="b" id="submit">Créer</a>
 
 
 	</div><!-- /content -->
+	
+<script>
+	$('#submit').click(function(event) {
+	  event.preventDefault();
+	  $('#new_event').submit();
+	});
+</script>

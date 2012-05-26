@@ -1,25 +1,24 @@
 <%= form_for(@event) do |f| %>
   <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <div class="ui-body ui-body-e">
+      <h3>/!\ Erreur - merci de compléter les champs</h3>
+  </div>
+  <br/>
   <% end %>
 
+<label for="event_name" class="ui-hidden-accessible">Evénement</label>
+<input type="text" id="event_name" name="event[name]" value="<%= @event.name %>" placeholder="Evénement"/>
+<br/>
+<fieldset data-role="controlgroup" data-type="horizontal">
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+   
+   
+   
+   
+   
+   
+   
+   <%= f.date_select :date %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</fieldset>
 <% end %>
